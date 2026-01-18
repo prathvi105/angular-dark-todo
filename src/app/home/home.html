@@ -1,0 +1,27 @@
+<div class="todo-container">
+  <h1>My To-Do App</h1>
+
+  <div class="input-box">
+    <input
+      type="text"
+      placeholder="Enter task"
+      [(ngModel)]="task"
+    />
+    <button class="add-btn" (click)="addTask()">Add</button>
+  </div>
+
+  <ul>
+    <li *ngFor="let t of tasks; let i = index"
+        [class.done]="t.completed">
+        <input
+        type="checkbox"
+        (change)="toggleTask(i)"
+        [checked]="t.completed"/>
+
+      <span>{{ t.text }}</span>  
+      <button class="delete-btn" (click)="deleteTask(i)">✕</button>
+    </li>
+  </ul>
+</div>
+
+
